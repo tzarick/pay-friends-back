@@ -74,8 +74,6 @@ export const evenUp = async () => {
 
     const debts = calculateDebts(payments); // TODO
   } catch (_) {
-    console.log(
-      'Something went wrong while getting all the inputs :( Please try again!'
-    );
+    console.log('Something went wrong while evening up :( Please try again!');
   }
 };

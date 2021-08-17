@@ -4,7 +4,8 @@
   "description": "pay friends back - now there are no excuses!!",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
