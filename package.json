@@ -1,0 +1,25 @@
+{
+  "name": "pay-friends-back",
+  "version": "1.0.0",
+  "description": "pay friends back - now there are no excuses!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzarick/pay-friends-back.git"
+  },
+  "author": "tommy zarick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzarick/pay-friends-back/issues"
+  },
+  "homepage": "https://github.com/tzarick/pay-friends-back#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "jest": "^27.0.6",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
