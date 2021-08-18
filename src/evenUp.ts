@@ -46,9 +46,9 @@ const getFriendNamesAndPayments = async (): Promise<{
       `Enter ${i > 0 ? 'another' : 'a'} good friend's name`
     );
 
-    const { friendName, payment, moreFriends } = await prompt.get([
-      ...Object.values(properties),
-    ]);
+    const { friendName, payment, moreFriends } = await prompt.get(
+      Object.values(properties)
+    );
     inputObj[friendName as string] = Number(payment);
 
     finished = ['no', 'n'].includes((moreFriends as string).toLowerCase());
