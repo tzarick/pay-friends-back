@@ -44,8 +44,5 @@ describe('evenUp', () => {
       // I think we might still be missing opportunities for easy cancel outs since we are only working down from the ends of the array
       const friends = ['mal', 'tessa', 'sam'];
     });
-    test('case 3', () => {
-      // another case to test decimal input values
-    });
   });
 });
