@@ -90,6 +90,11 @@ const sortFriendsByDebt = (friends: string[], debts: number[]) => {
   };
 };
 
+// check to see if floating point numbers are close enough to zero to consider them zero
+const isEffectivelyZero = (num: number) => {
+  return num >= -ALMOST_ZERO && num <= ALMOST_ZERO;
+};
+
 /**
  * Build a transaction map that evens out the input debts
  * @param debts array of debts
@@ -100,7 +105,7 @@ export const buildTransactionMap = (
   friends: string[]
 ): string[] => {
   assert(
-    debts.reduce((a, b) => a + b, 0) <= ALMOST_ZERO,
+    isEffectivelyZero(debts.reduce((a, b) => a + b, 0)),
     'The sum of all debts must be zero'
   );
 
@@ -134,8 +139,8 @@ export const buildTransactionMap = (
       `${friendsSorted[j]} pays ${friendsSorted[i]} $${txAmountDisplay}`
     );
 
-    if (debtsSorted[i] <= ALMOST_ZERO) i++;
-    if (debtsSorted[j] <= ALMOST_ZERO) j--;
+    if (isEffectivelyZero(debtsSorted[i])) i++;
+    if (isEffectivelyZero(debtsSorted[j])) j--;
   }
 
   return transactions;
