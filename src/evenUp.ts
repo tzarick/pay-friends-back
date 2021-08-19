@@ -1,7 +1,6 @@
 import prompt from 'prompt';
 import colors from 'colors/safe';
 import assert from 'assert';
-import { Color } from 'colors';
 
 const MESSAGE_COLOR = colors.cyan;
 

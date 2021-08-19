@@ -17,6 +17,14 @@ describe('evenUp', () => {
   });
 
   describe('buildTransactionMap()', () => {
+    it('should not allow uneven debts', () => {
+      const inputDebts = [32, 12, -1];
+      const friends = ['bailey', 'winston', 'jess'];
+
+      expect(() => {
+        buildTransactionMap(inputDebts, friends);
+      }).toThrow('The sum of all debts must be zero');
+    });
     test('case 1', () => {
       const inputDebts = [-21.25, -36.25, 18.75, 38.75];
       const friends = ['mitch', 'johnny', 'beth', 'randy'];
@@ -31,13 +39,10 @@ describe('evenUp', () => {
         expectedTransactionMap
       );
     });
-    it('should not allow uneven debts', () => {
-      const inputDebts = [32, 12, -1];
-      const friends = ['bailey', 'winston', 'jess'];
-
-      expect(() => {
-        buildTransactionMap(inputDebts, friends);
-      }).toThrow('The sum of all debts must be zero');
+    test('case 2', () => {
+      // another case here to demonstrate how we could optimize this algorithm further (optimize = guarantee we find the solution with the smallest possible # of transactions. Actual performance will probably take a hit.)
+      // I think we might still be missing opportunities for easy cancel outs since we are only working down from the ends of the array
+      const friends = ['mal', 'tessa', 'sam'];
     });
   });
 });
