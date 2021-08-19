@@ -3,6 +3,7 @@ import colors from 'colors/safe';
 import assert from 'assert';
 
 const MESSAGE_COLOR = colors.cyan;
+const ALMOST_ZERO = 0.01;
 
 // Input Property Descriptions
 // ////////
@@ -99,7 +100,7 @@ export const buildTransactionMap = (
   friends: string[]
 ): string[] => {
   assert(
-    debts.reduce((a, b) => a + b, 0) === 0,
+    debts.reduce((a, b) => a + b, 0) <= ALMOST_ZERO,
     'The sum of all debts must be zero'
   );
 
@@ -133,8 +134,8 @@ export const buildTransactionMap = (
       `${friendsSorted[j]} pays ${friendsSorted[i]} $${txAmountDisplay}`
     );
 
-    if (debtsSorted[i] === 0) i++;
-    if (debtsSorted[j] === 0) j--;
+    if (debtsSorted[i] <= ALMOST_ZERO) i++;
+    if (debtsSorted[j] <= ALMOST_ZERO) j--;
   }
 
   return transactions;
