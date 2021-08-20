@@ -42,7 +42,7 @@ describe('evenUp', () => {
     test('case 2', () => {
       // another case here to demonstrate how we could optimize this algorithm further (optimize = guarantee we find the solution with the smallest possible # of transactions. Actual performance will probably take a hit.)
       // I think we might still be missing opportunities for easy cancel outs since we are only working down from the ends of the array
-      const inputDebts = [-50, -20, -10, 20, 60]; // if we paid down from the ends without considering the rest of the debts, we would miss the matching $20 debts, which is an easy win -> leading to an extra transaction. Wait - no it doesn't... not in this case at least... Just a *different* set of the same number... Is this always true?
+      const inputDebts = [-50, -20, -10, 20, 60]; // if we paid down from the ends without considering the rest of the debts, we would miss the matching $20 debts, which is an easy win -> leading to an extra transaction.
       const friends = ['mal', 'tessa', 'sam', 'scarlett', 'mary'];
 
       // const expectedTransactionMap = [
