@@ -156,6 +156,8 @@ const displayTransactions = (
     const line = color ? color(tx) : tx;
     console.log('>>', line);
   });
+
+  console.log('\n');
 };
 
 export const evenUp = async () => {
@@ -170,7 +172,8 @@ export const evenUp = async () => {
   }
 
   const debts = calculateDebts(payments);
-
   const transactions = buildTransactionMap(debts, friends);
   displayTransactions(transactions, colors.bold);
+
+  await prompt.get(['Press enter to exit']);
 };
