@@ -95,6 +95,30 @@ const isEffectivelyZero = (num: number) => {
   return num >= -ALMOST_ZERO && num <= ALMOST_ZERO;
 };
 
+// This is for optimization purposes (meaning here that we should always return the smallest possible number of transactions) - not necessary to find *a* solution but will allow us to find the best solution
+// assumes debts is a sorted asc
+// mutates debts and transactions
+const clearEasyMatches = (
+  debts: number[], // (pass by ref)
+  friends: string[],
+  transactions: string[], // (pass by ref)
+  i: number, // where the left side pointer is currently (pass by value)
+  j: number // where the right side pointer is currently (pass by value)
+) => {
+  while (debts[i] < 0) {
+    while (debts[j] >= Math.abs(debts[i])) {
+      if (debts[j] === Math.abs(debts[i])) {
+        transactions.push(`${friends[j]} pays ${friends[i]} $${debts[j]}`);
+        debts[i] = 0;
+        debts[j] = 0;
+        break;
+      }
+      j--;
+    }
+    i++;
+  }
+};
+
 /**
  * Build a transaction map that evens out the input debts
  * @param debts array of debts
@@ -116,6 +140,14 @@ export const buildTransactionMap = (
   let i = 0;
   let j = debts.length - 1;
   while (i < j) {
+    clearEasyMatches(debtsSorted, friendsSorted, transactions, i, j);
+
+    if (debtsSorted[i] === 0 && debtsSorted[j] === 0) {
+      i++;
+      j--;
+      continue;
+    }
+
     let largerAbsValIdx = -1;
     let smallerAbsValIdx = -1;
 
@@ -139,8 +171,8 @@ export const buildTransactionMap = (
       `${friendsSorted[j]} pays ${friendsSorted[i]} $${txAmountDisplay}`
     );
 
-    if (isEffectivelyZero(debtsSorted[i])) i++;
-    if (isEffectivelyZero(debtsSorted[j])) j--;
+    while (isEffectivelyZero(debtsSorted[i]) && i < debtsSorted.length - 1) i++;
+    while (isEffectivelyZero(debtsSorted[j]) && j > 0) j--;
   }
 
   return transactions;

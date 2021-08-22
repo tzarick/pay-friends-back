@@ -45,15 +45,15 @@ describe('evenUp', () => {
       const inputDebts = [-50, -20, -10, 20, 60]; // if we paid down from the ends without considering the rest of the debts, we would miss the matching $20 debts, which is an easy win -> leading to an extra transaction.
       const friends = ['mal', 'tessa', 'sam', 'scarlett', 'mary'];
 
-      // const expectedTransactionMap = [
-      //   'scarlett pays tessa $20',
-      //   'mary pays mal $50',
-      //   'mary pays sam $10',
-      // ];
+      const expectedTransactionMap = [
+        'scarlett pays tessa $20',
+        'mary pays mal $50',
+        'mary pays sam $10',
+      ];
 
-      // expect(buildTransactionMap(inputDebts, friends)).toEqual(
-      //   expectedTransactionMap
-      // );
+      expect(buildTransactionMap(inputDebts, friends)).toEqual(
+        expectedTransactionMap
+      );
     });
   });
 });
