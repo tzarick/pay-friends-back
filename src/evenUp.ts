@@ -108,7 +108,11 @@ const clearEasyMatches = (
   while (debts[i] < 0) {
     while (debts[j] >= Math.abs(debts[i])) {
       if (debts[j] === Math.abs(debts[i])) {
-        transactions.push(`${friends[j]} pays ${friends[i]} $${debts[j]}`);
+        const txAmountDisplay =
+          debts[j] % 1 === 0 ? debts[j] : debts[j].toFixed(2); // int vs float
+        transactions.push(
+          `${friends[j]} pays ${friends[i]} $${txAmountDisplay}`
+        );
         debts[i] = 0;
         debts[j] = 0;
         break;
