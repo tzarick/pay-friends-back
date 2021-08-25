@@ -204,12 +204,11 @@ export const evenUp = async () => {
 
   if (friends.length <= 1) {
     console.log('Need more friends, sorry.');
-    return;
+  } else {
+    const debts = calculateDebts(payments);
+    const transactions = buildTransactionMap(debts, friends);
+    displayTransactions(transactions, colors.bold);
   }
-
-  const debts = calculateDebts(payments);
-  const transactions = buildTransactionMap(debts, friends);
-  displayTransactions(transactions, colors.bold);
 
   await prompt.get(['Press enter to exit']);
 };
