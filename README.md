@@ -11,7 +11,7 @@ An interactive cli tool for squaring up with friends after uneven spending.
 after installing dependencies:
 
 - run: `npm run start`
-- build: `npm run build` for an executable - currently configured for windows x64, node 14. Alter the pkg target in the build script to build for a different local machine setup or remove the target param altogether
+- build: `npm run build` for an executable. This will be placed in a `build` folder.
 
 ## Motivation
 
