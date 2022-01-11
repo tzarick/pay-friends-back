@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "ts-node src/index.ts",
-    "build": "tsc && pkg -t host dist/src/index.js --output build/pay-friends-back.exe"
+    "build": "tsc && pkg --targets node14-win-x64,node14-macos-x64 dist/src/index.js --output build/pay-friends-back"
   },
   "repository": {
     "type": "git",
