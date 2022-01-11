@@ -2,6 +2,7 @@
 
 An interactive cli tool for squaring up with friends after uneven spending.
 
+(the second generation of this tool lives [here](https://github.com/tzarick/pay-friends-back-web))
 ## Usage
 
 ![PFB Demo](demo/demo.gif)
@@ -25,4 +26,4 @@ I realize we could avoid any "complicated" (aka just requiring slightly more bra
 
 ## Future Todos
 
-It would be nice to be able to easily use this from a phone to have the option to square up in the car on the way home, in the above scenario for example. Maybe build this into an api to be called via the web in some fashion.
+~~It would be nice to be able to easily use this from a phone to have the option to square up in the car on the way home, in the above scenario for example. Maybe build this into an api to be called via the web in some fashion.~~ EDIT: this is done :exclamation: Check it out for a more pleasant UX -> [PFB web](https://github.com/tzarick/pay-friends-back-web)
